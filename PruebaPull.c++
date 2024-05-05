@@ -1,5 +1,5 @@
 #include<iostream>
-using namespace std::
+using namespace std;
 class Rectangulo{
   private: 
   int base;
@@ -9,17 +9,18 @@ class Rectangulo{
     base = _base;
     altura = _altura;
   }
-  ~Rectangulo{}
+  ~Rectangulo(){}
   int obtenerPerimetro(){
     int perimetro;
     perimetro = base * 2 + altura * 2;
     return perimetro;
   }
-}
+};
 
 int main(){
   Rectangulo rectangulo(5,6);
   int unPerimetro = rectangulo.obtenerPerimetro();
   cout<<"El perimetro es "<<unPerimetro<<endl;
+  getchar();
   return 0;
 }
