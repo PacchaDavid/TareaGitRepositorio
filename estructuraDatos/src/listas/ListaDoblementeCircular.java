@@ -11,11 +11,20 @@ public class ListaDoblementeCircular extends Lista
 
     public void insertarValor(int valor, int posicion) {
         if(posicion<0||posicion>longitud) {
-            System.out.println("Error en la clase insertarValor()");
+            System.out.println("Error en el método insertarValor()");
             return;
         }
         NodoLista nodo = new NodoLista(valor);
         if(estaVacia()) {
+            cabeza = nodo;
+            cabeza.setSiguiente(cabeza);
+            cabeza.setAnterior(cabeza);
+            longitud++;
+            return;
+        }
+        if(posicion == 1 && !estaVacia()) {
+            nodo.setSiguiente(cabeza);
+            cabeza.setAnterior(nodo);
             cabeza = nodo;
             
         }
@@ -28,5 +37,8 @@ public class ListaDoblementeCircular extends Lista
         return;
     }
 
+    public void recorrerEnAmbosSentidos(boolean adelante) {
+        return;
+    }
 
 }

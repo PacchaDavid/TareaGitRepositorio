@@ -53,8 +53,7 @@ public class ListaCircular extends Lista
         puntero.setSiguiente(nodo);
         nodo.setAnterior(puntero);
         nodo.getSiguiente().setAnterior(nodo);
-        longitud++;
-        
+        longitud++;   
     }
 
     public int buscarValor(int posicion) {
