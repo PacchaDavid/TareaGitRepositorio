@@ -19,5 +19,7 @@ urlpatterns = [
     path('controls/',views.controls,name='controls'),
     path('gestion/',views.gestion,name='gestion'),
     path('users/',views.usuarios,name='usuarios'),
+    path('randomuser/',views.random_user,name='randomuser'),
+    path('chiste/',views.chiste_del_dia,name='chiste_del_dia'),
     path('api/', include(router.urls))
 ]

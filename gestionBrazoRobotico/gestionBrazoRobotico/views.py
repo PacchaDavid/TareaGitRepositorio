@@ -4,6 +4,8 @@ from .models import BrazoRobotico, PlacaControladora, Sensor, Servomotor, Usuari
 import random
 from rest_framework import viewsets
 from .serializers import *
+from . import services
+
 
 def home(request):
     return render(request,'index.html')
@@ -39,6 +41,12 @@ def usuarios(request):
     return render(request,'users.html',{
         'users' : usuarios
     })
+
+def random_user(request):
+    return render(request,'randomuser.html',services.get_random_user())
+
+def chiste_del_dia(request):
+    return render(request,'chiste.html',services.get_chiste())
 
 class UsuariosViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
