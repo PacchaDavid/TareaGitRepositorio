@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Agregar Tabla{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/agregar_tabla.css' %}">
+{% endblock %}
+{% block content %}
+<h2>Agregar Tabla</h2>
+<form action="{% url 'agregar_tabla' %}" method="POST">
+  {% csrf_token %}
+  <center>
+    <label for="descripcion">Nombre:</label><br>
+    <textarea name="descripcion" id="descripcion" required></textarea><br>
+    <button type="submit">Agregar</button>
+  </center>
+</form>
+{% endblock %}

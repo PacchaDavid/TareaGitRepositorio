@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Libros de Registro{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/libros_de_registro.css' %}">
+{% endblock %}
+{% block content %}
+{% if numero_tablas > 3 %}
+<style>
+  main{
+    height: max-content;
+  }
+</style>
+{% endif %}
+<h2>Libros de Registro</h2>
+{% for tabla in tabla_registro_list %}
+<div class="tabla">
+  <h3>{{ tabla.id }} - {{ tabla.descripcion }}</h3>
+  <a href="{% url 'ver_tabla' tabla.id %}">Ver</a> - <a href="{% url 'eliminar_tabla' tabla.id %}">Eliminar</a>
+</div>
+{% endfor %}
+<div class="agregar"><a href="{% url 'agregar_tabla' %}"><h3>+</h3></a></div>
+{% endblock %}
