@@ -1,0 +1,100 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Agregar Fila{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/agregar_fila.css' %}">
+{% endblock %}
+{% block content %}
+<h2>Agregar Fila</h2>
+<form method="POST">
+  {% csrf_token %}
+   <table>
+    <tr>
+      <td colspan="2">{{ row_tabla_form.fecha.label }}:</td>
+      <td><input type="date" name="fecha" id="id_fecha"></td>
+    </tr>
+    <tr>
+      <td colspan="2">{{ row_tabla_form.detalle.label }}:</td>
+      <td>{{row_tabla_form.detalle}}</td>
+    </tr>
+    <tr>
+      <td rowspan="3">Caja</td>
+      <td><label for="ingresos_caja">Ingresos:</label></td>
+      <td><input type="number" aria-required="true" step="0.01" name="ingresos_caja" id="ingresos_caja" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td><label for="egresos_caja">Egresos:</label></td>
+      <td><input type="number" step="0.01" name="egresos_caja" id="egresos_caja" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td><label for="saldo_caja">Saldo:</label></td>
+      <td><input type="number" step="0.01" name="saldo_caja" id="saldo_caja" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td rowspan="3">Banco</td>
+      <td><label for="ingresos_banco">Ingresos:</label></td>
+      <td><input type="number" step="0.01" name="ingresos_banco" id="ingresos_banco" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td><label for="egresos_banco">Egresos:</label></td>
+      <td><input type="number" step="0.01" name="egresos_banco" id="egresos_banco" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td><label for="saldo_banco">Saldo:</label></td>
+      <td><input type="number" step="0.01" name="saldo_banco" id="saldo_banco" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td colspan="2">{{ row_tabla_form.ventas.label }}:</td>
+      <td><input type="number" name="ventas" step="0.01" id="id_ventas" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td colspan="2">Costos materiales:</td>
+      <td><input type="number" name="costos_materiales" step="0.01" id="id_costos_materiales" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td colspan="2">Costos del personal:</td>
+      <td><input type="number" name="costos_personal" step="0.01" id="id_costos_personal" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td colspan="2">Gastos Generales:</td>
+      <td><input type="number" name="gastos_generales" step="0.01" id="id_gastos_generales" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td rowspan="3">IVA</td>
+      <td><label for="ingresos_iva">Ingresos:</label></td>
+      <td><input type="number" step="0.01" name="ingresos_iva" id="ingresos_iva" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td><label for="egresos_iva">Egresos:</label></td>
+      <td><input type="number" step="0.01" name="egresos_iva" id="egresos_iva" value="0" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+    <tr>
+      <td><label for="saldo_iva">Saldo:</label></td>
+      <td><input type="number" step="0.01" name="saldo_iva" id="saldo_iva" value="0"  aria-required="true" onclick="borrarContenido(this)" onblur="llenarCampo(this)"></td>
+    </tr>
+  </table>
+  <center><input type="submit" value="Agregar" value="0" id="enviar"></center>
+</form>
+<script>
+  function borrarContenido(input) {
+    if(input.value === '0')
+    input.value = '';
+  }
+  var enviar = document.getElementById('enviar');
+  var fecha = document.getElementById('id_fecha');
+
+  enviar.addEventListener('mouseover', function() {
+    if(fecha.value === '') {
+      alert('Ingrese una fecha');
+      fecha.focus();
+    }
+  });
+
+  function llenarCampo(input) {
+    if(input.value==='') {
+      input.value = '0';
+    }
+  }
+
+</script> 
+{% endblock %}

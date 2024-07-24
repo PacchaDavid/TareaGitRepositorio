@@ -1,0 +1,45 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Eliminar tabla {{id}}{% endblock %}
+{% block extra_css %} 
+  <style>
+    input[type="submit"] {
+      border-radius: 5px;
+      border: none;
+      padding: 7px 20px;
+      background-color: #172c6c;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 17px;
+      margin-left: 30px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    div {
+        width: 100%;
+        justify-content: center;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+<br>
+<center><h2>¿Está seguro que desea eliminar el Libro?</h2></center>
+<br>
+<div style="display: flex;">
+    <form action="{% url 'eliminar_tabla' id %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="confirmacion" value="si" style="display: none;">
+      <input type="submit" value="Si">
+    </form>
+    <form action="{% url 'eliminar_tabla' id %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="confirmacion" value="no" style="display: none;">
+      <input type="submit" value="No">
+    </form>
+</div>
+{% endblock %}

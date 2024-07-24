@@ -1,0 +1,46 @@
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+form {
+    width: 40%;
+    margin-left: 30%;
+    padding: 3%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    padding: 7px 13px;
+    background-color: #172c6c;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 17px;
+}
+
+button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+textarea {
+    width: 100%;
+    padding: 2px 3px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 20px;
+    background: #dce7f1;
+    font-size: 20px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+}

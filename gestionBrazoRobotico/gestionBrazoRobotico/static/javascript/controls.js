@@ -1,4 +1,4 @@
-var ipDirection;
+var ipDirection = '22.12.45.2';
 
 var baseInput = document.getElementById('Base');
 var hombroInput = document.getElementById('Hombro');
@@ -24,7 +24,7 @@ buttonConection.addEventListener('click', () => {
 
 function initCameraWebSocket() 
 {
-    websocketCamera = new WebSocket('ws://' + ipDirection + '/Camera');
+    websocketCamera = new WebSocket('ws://' + '192.168.1.1' + '/Camera');
     websocketCamera.binaryType = 'blob';
     websocketCamera.onopen    = function(event){};
     websocketCamera.onclose   = function(event){setTimeout(initCameraWebSocket, 2000);};
@@ -96,6 +96,4 @@ function validarIPv4(ip) {
 
     return true; 
 }
-
-
 

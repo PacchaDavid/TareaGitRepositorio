@@ -8,28 +8,28 @@ from . import services
 
 
 def home(request):
-    return render(request,'index.html')
+    return render(request,'principal/index.html')
 
 def about_us(request):
-    return render(request,'aboutus.html')
+    return render(request,'principal/aboutus.html')
 
 def info(request):
-    return render(request,'info.html')
+    return render(request,'principal/info.html')
 
 def materials(request):
-    return render(request,'materials.html')
+    return render(request,'principal/materials.html')
 
 def graphics(request):
-    return render(request,'graphics.html')
+    return render(request,'principal/graphics.html')
 
 def controls(request):
-    return render(request,'controls.html')
+    return render(request,'controls/controls.html')
 
 def gestion(request):
     key = random.randint(10000,99999)
 
     if request.method == 'GET':
-        return render(request,'gestion.html',{
+        return render(request,'principal/gestion.html',{
             'userForm': CrearUsuarioForm(),
         })
     else:
@@ -38,15 +38,18 @@ def gestion(request):
 
 def usuarios(request):
     usuarios = list(Usuario.objects.all())
-    return render(request,'users.html',{
+    return render(request,'principal/users.html',{
         'users' : usuarios
     })
 
 def random_user(request):
-    return render(request,'randomuser.html',services.get_random_user())
+    return render(request,'principal/randomuser.html',services.get_random_user())
 
 def chiste_del_dia(request):
-    return render(request,'chiste.html',services.get_chiste())
+    return render(request,'principal/chiste.html',services.get_chiste())
+
+def control2(request):
+    return render(request,'controls/controls2.html')
 
 class UsuariosViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()

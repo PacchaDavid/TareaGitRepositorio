@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}{{ tabla.nombre }}{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ver_tabla.css' %}">
+{% endblock %}
+{% block content %}
+<h2>{{ libro.nombre }}</h2>
+<table>
+  <tr>
+    <th rowspan="2">Fecha</th>
+    <th rowspan="2">Detalle</th>
+    <th colspan="3">Caja</th>
+    <th colspan="3">Banco</th>
+    <th rowspan="2">Ventas</th>
+    <th rowspan="2">Materiales</th>
+    <th rowspan="2">Personal</th>
+    <th rowspan="2">Gasto General</th>
+    <th colspan="3">IVA</th>
+  </tr>
+  <tr>
+    <th>Ingresos</th>
+    <th>Egresos</th>
+    <th>Saldo</th>
+    <th>Ingresos</th>
+    <th>Egresos</th>
+    <th>Saldo</th>
+    <th>Ingresos</th>
+    <th>Egresos</th>
+    <th>Saldo</th>
+  </tr>
+ {% for row in libro.rows %}
+  <tr>
+    <td>{{row.fecha}}</td>
+    <td>{{row.detalle}}</td>
+    <td>{{row.caja.ingresos}}</td>
+    <td>{{row.caja.egresos}}</td>
+    <td>{{row.caja.saldo}}</td>
+    <td>{{row.banco.ingresos}}</td>
+    <td>{{row.banco.egresos}}</td>
+    <td>{{row.banco.saldo}}</td>
+    <td>{{row.ventas}}</td>
+    <td>{{row.costos_materiales}}</td>
+    <td>{{row.costos_personal}}</td>
+    <td>{{row.gastos_generales}}</td>
+    <td>{{row.iva.ingresos}}</td>
+    <td>{{row.iva.egresos}}</td>
+    <td>{{row.iva.saldo}}</td>
+  </tr>
+  {% endfor %}
+</table>
+<div class="agregar"><a href="{% url 'agregar_fila' tabla_id %}"><h3>+ Agregar Fila</h3></a></div>
+{% endblock %}

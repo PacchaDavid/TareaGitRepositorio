@@ -3,14 +3,14 @@ main {
 }
 
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
 }
 
 .container {
     display: flex;
     width: 86%;
-    height: 500px;
+    height: 600px;
     margin-left: 7%;
     margin-right: 7%;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
@@ -18,7 +18,7 @@ footer {
 
 #left {
     width: 30%;
-    height: 430px;
+    height: 480px;
     background: gray;
     margin-top: 2%;
     margin-left: 5%;
@@ -28,14 +28,14 @@ footer {
 #right {
     background-color: gray;
     width: 58%;
-    height: 430px;
+    height: 480px;
     margin: 2%;
     border-radius: 3%;
 }
 
 #cameraImage {
-    width: 50%;
-    height: 190px;
+    width: 300px;
+    height: auto;
     background: black;
     margin-left: 25%;
     margin-top: 2%;
@@ -95,4 +95,15 @@ button {
 
 button:hover {
     background-color: rgb(94, 92, 92);
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: black;
+}
+
+p a {
+    text-decoration: none;
+    color: white;
 }

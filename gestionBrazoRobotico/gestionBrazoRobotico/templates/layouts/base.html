@@ -14,16 +14,16 @@
     <h1>TeleRobot: Proyecto Integrador</h1>
     <nav>
       <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/aboutus">Sobre Nosotros</a></li>
-        <li><a href="/info">Información</a></li>
-        <li><a href="/materials">Materiales</a></li>
-        <li><a href="/graphics">Gráficos</a></li>
-        <li><a href="/controls">Controles</a></li>
-        <li><a href="/gestion">Gestión</a></li>
-        <li><a href="/users">Usuarios</a></li>
-        <li><a href="/randomuser">Random User</a></li>
-        <li><a href="/chiste">Chiste del Día</a></li>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'about_us' %}">Sobre Nosotros</a></li>
+        <li><a href="{% url 'info' %}">Información</a></li>
+        <li><a href="{% url 'materials' %}">Materiales</a></li>
+        <li><a href="{% url 'graphics' %}">Gráficos</a></li>
+        <li><a href="{% url 'controls' %}">Controles 1</a></li>
+        <li><a href="{% url 'gestion' %}">Gestión</a></li>
+        <li><a href="{% url 'usuarios' %}">Usuarios</a></li>
+        <li><a href="{% url 'randomuser' %}">Random User</a></li>
+        <li><a href="{% url 'chiste_del_dia' %}">Chiste del Día</a></li>
       </ul>
     </nav>
   </header>
