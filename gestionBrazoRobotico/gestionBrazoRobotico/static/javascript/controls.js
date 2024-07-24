@@ -4,9 +4,72 @@ var baseInput = document.getElementById('Base');
 var hombroInput = document.getElementById('Hombro');
 var codoInput = document.getElementById('Codo');
 var pinzaInput = document.getElementById('Pinza');
+var flashInput = document.getElementById('Flash');
+
+var baseInputValue = document.getElementById('angle1');
+var hombroInputValue = document.getElementById('angle2');
+var codoInputValue = document.getElementById('angle3');
+var pinzaInputValue = document.getElementById('angle4');
+var flashInputValue = document.getElementById('flashValue');
 
 var buttonConection = document.getElementById('alternarConexion');
 var inputIP = document.getElementById('direccionIP');
+
+var angle1 = 90;
+var angle2 = 90;
+var angle3 = 90;
+var angle4 = 90;
+
+var interval = null;
+
+
+function updateValues(input, inputValue, angle, direction) {
+        if(!interval && angle <= 180 && angle >= 0 ) {
+            interval = setInterval(function() {
+                angle += direction;
+                input.value = angle;
+                inputValue.textContent = angle;
+            }, 30)
+        }
+}
+
+document.addEventListener('keydown', function(event) {
+    switch(event.key) {
+        case 'j':
+            updateValues(baseInput,baseInputValue,angle1,-1);
+            break;
+        case 'l':
+            updateValues(baseInput,baseInputValue,angle1,+1);
+            break;
+        case 'i':
+        //To Do: any
+            break;
+        case 'k':
+        //To Do: any
+            break;
+        case 'w':
+        //To Do: any
+        break;
+        case 's':
+            //To Do: any
+            break;
+        case 'a':
+            //To Do: any
+            break;
+        case 'd':
+                //To Do: any
+                break;
+        default:
+            console.log(event.key)
+            break;
+    }
+
+});
+
+document.addEventListener('keyup', function() {
+    clearInterval(interval);
+    interval = null;
+})
 
 buttonConection.addEventListener('click', () => {
     if(buttonConection.textContent === 'Conectar') {
