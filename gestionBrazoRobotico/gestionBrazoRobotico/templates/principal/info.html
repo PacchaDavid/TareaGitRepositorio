@@ -1,0 +1,62 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Información{% endblock %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/info.css' %}">
+{% endblock %}
+{% block content %}
+  <div id = "navigation">
+    <ol>
+      <li ><a href="#info1" class = "motion">Antecedentes</a></li>
+      <li><a href="#info2" class = "motion" >Problemática</a></li>
+      <li ><a href="#info3" class = "motion" >Propuesta</a></li>
+      <li><a href="#info4" class = "motion" >Objetivos</a></li>
+      <li><a href="#info5" class = "motion">Requerimientos</a></li>
+    </ol>
+  </div>
+  <div class="box">
+    <h2>Información Reelevante</h2>
+    <div id = "content">
+        <h3 id = "info1">Antecedentes</h3>
+        <p>Este proyecto surgió como una iniciativa para abordar la recolección de residuos, centrándose en materiales reciclables. Nuestra meta principal fue desarrollar un brazo robótico capaz de ofrecer una solución integral a este desafío. Buscábamos no solo mejorar la eficiencia de la recolección, sino también promover una gestión sostenible de desechos.
+  
+          El proyecto fue un éxito, logrando crear un sistema que integra tanto la recolección manual como la automatizada. Mediante el uso de pulsadores, se facilitó el control manual del brazo robótico, permitiendo una operación intuitiva y eficaz.</p>
+        <img src="{% static 'imgs/brazo.jpeg' %}" alt="brazo logo">
+        <h3 id = "info2">Problemática</h3>
+        <p>En este proyecto, continuaremos mejorando el brazo robótico. En este momento, nos enfrentamos al desafío de hacer que el brazo pueda funcionar de manera remota o a distancia. Esto implica la capacidad de operar el brazo sin necesidad de estar físicamente presentes en el lugar donde se encuentra. Esta funcionalidad es crucial en situaciones de emergencia que nos impidan acceder al entorno físico. Por lo tanto, nuestro próximo paso es buscar soluciones para el control remoto del brazo.</p>
+        <img src="{% static 'imgs/redes.jpeg' %}" alt="">
+        <h3 id = "info3" >Propuesta</h3>       
+        <p>Conscientes al desafío a afrontar, se llego a la siguiente solución: manejar el dispositivo mediante una aplicación o una página web, donde además de poder controlarlo de forma remota, tendrá incorporada una cámara para captar el entorno de manera virtual, y conocer por medio de un sensor de fuerza el peso de los objetos y/o desechos que el brazo manipule.</p>
+        <img src="{% static 'imgs/controlesweb.bmp' %}" alt="">
+        <h3 id = "info4" >Objetivos</h3>
+        <ul>
+          <li>Identificar las funcionalidades que va a proporcionar la página al usuario para que este tenga una experiencia satisfactoria cumpliendo con sus expectativas, debido a ello se recurrirá a lo que se llaman historias de uso y casos de uso.</li>
+          <li>Crear un prototipo de la interfaz que se va a implementar para el manejo del brazo robótico, con la meta de hacerla intuitiva para el usuario para que este no cometa errores que puedan llegar a darle una mala experiencias.</li>
+          <li>Elaborar conjunto de datos que serán mostrados en la interfaz en tiempo real y que el usuario interpretara y podrá hacer con ellos lo que necesite, esto gracias a los sensores y la cámara que constantemente capturan datos y los envían a la interfaz permitiendo asi conocer los alrededores del brazo y los objetos que haya recolectado.</li>
+        </ul>
+        <h3 id = "info5">Requerimientos</h3>
+        <h4>Para programación orientado a objetos se requiere: </h4>
+          <ul>
+            <li>Uso de los conocimientos básicos de la codificación de páginas HTML y CSS</li>
+            <li>Conocimientos adquiridos de los diagramas de clases y los casos de uso</li>
+            <li>Implementación correcta en la interfaz utilizada para la creación de códigos. </li>
+          </ul>
+  
+  
+        <h4>Para Emprendimiento e Innovación Tecnológica: </h4>
+          <ul>
+            <li>Conocer el estudio de mercado que se genera en el ambiente tecnológico. </li>
+          </ul>
+        <h4>Para análisis matemático: </h4>
+          <ul>
+            <li>Conocer el peso de objetos por medio de sensores que faciliten el trabajo</li>Para Teoría de la probabilidad:
+            <li>Generar una tabla sobre el peso de los objetos que se encuentren en el entorno del brazo robótico. </li>
+          </ul>
+        <h4>Para Diseño de Circuitos: </h4>
+          <ul>
+            <li>Generar un buen uso del hardware del circuito por medio de los conocimientos adiquiridos. </li>
+          </ul>
+    </div>
+  </div>
+  
+{% endblock %}
