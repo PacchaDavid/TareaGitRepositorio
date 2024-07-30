@@ -1,6 +1,5 @@
 main {
-    margin-top: 2%;
-    padding-top: 3%;
+    margin-top: 10%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -9,21 +8,22 @@ main {
 }
 
 h2 {
-    margin-top: 5%;
     text-align: center;
     color:white;
-    background: rgb(111, 78, 78);
+    background: rgb(141, 132, 132);
     width: 40%;
-    margin-left: 42%;
+    margin-left: 30%;
     border-color: rgb(45, 40, 40);
     border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
 }
 
 #navigation {
     position: fixed;
     display: block;
     width: 10%;
-    background: gray;
+    /* background: gray; */
     height: 100%;
     padding: 15px;
     line-height: 27px;
@@ -36,17 +36,18 @@ h2 {
 
 #navigation a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 #content {
-    width: 60%;
-    margin-left: 30%;
+    width: 64%;
+    margin-left: 20%;
     background: rgb(94, 92, 65);
     color: white;
-    padding: 29px;
+    padding: 3%;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 h3 {
@@ -62,7 +63,7 @@ p {
     line-height: 20px;
 }
 
-ul {
+/* ul {
     margin-bottom: 10px;
 }
-
+ */
