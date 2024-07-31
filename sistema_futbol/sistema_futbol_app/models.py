@@ -186,12 +186,6 @@ class EstadisticaJugador(models.Model):
     jugador = models.OneToOneField(Jugador,on_delete=models.CASCADE)
     precision_pases = models.FloatField()
     
-""" Sugerencias:
-    - en EstadisticaPartido agregar jugadores que participaron, ingresaron y salieron
-    - se puede generar una clase Cambio para agregar los jugadores relacionados
-    - añadir clase Gol con atributos de jugador y minuto
-    - clase Falta con los jugadores implicados y el minuto
-    - Calcular efectividad del equipo de acuerdo a varios parámetros"""
 
 class EstadisticaEquipo(models.Model):
     efectividad = models.FloatField()
