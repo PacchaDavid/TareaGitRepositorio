@@ -2,6 +2,8 @@
 Tarea Sistema Futbol 
 Actualización:
 - código sistema_fulvo a sistema_futbol, todos los modelos y migraciones implementados, aún sin vistas
+
+
 Diagrama de Clases:
 ![sistemaDeportes drawio](https://github.com/user-attachments/assets/3f333e49-7611-47e5-9cf7-9bc519dd005f)
 
