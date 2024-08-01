@@ -2,14 +2,17 @@
 {% load static %}
 {% block title %}Equipos{% endblock %}
 {% block extra-css %}
+ <link rel="stylesheet" href="{% static 'css/equipos.css' %}">
 {% endblock %}
 {% block content %}
 <h1>Equipos</h1>
 <p>En esta página se mostrarán los equipos</p>
 {% for row in tabla_completa.tabla_rows %}
-  <div class="equipo" style="display: flex; width: max-content;">
+
+  <div class="equipo">
     <img src="{{ row.equipo.url_image }}" alt="{{ row.equipo.nombre }}" style="width: 40px; height: auto;">
     <a href="{% url 'ver_equipo' row.equipo.id %}"><h2>{{row.equipo.nombre}}</h2></a>
   </div>
+  
 {% endfor %}
 {% endblock %}

@@ -2,22 +2,13 @@
 {% load static %}
 {% block title %}Ver {{ equipo_completo.equipo.nombre }}{% endblock %}
 {% block extra-css %}
+  <link rel="stylesheet" href="{% static 'css/ver_partido.css' %}">
 {% endblock %}
 {% block content %}
 {% if partido.amistoso %}
   <h2>Partido Amitoso</h2>
 {% endif %}
 <h1>{{ partido }}</h1>
-<style>
-  h1 {
-    margin-left: 4%;
-  }
-  div img{
-    width: 100px;
-    height: auto;
-    margin-left: 2%;
-  }
-</style>
 <div class="enfrentamiento" style="display: flex;">
   <img src="{{ partido.equipo1.url_image }}" alt="{ partido.equipo1.nombre }">
   <img src="{{ partido.equipo2.url_image }}" alt="{ partido.equipo2.nombre }">

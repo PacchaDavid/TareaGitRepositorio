@@ -1,0 +1,13 @@
+h1 {
+    margin-left: 4%;
+}
+
+div img {
+    width: 100px;
+    height: auto;
+    margin-left: 3%;
+}
+
+main {
+    height: 100vh;
+}

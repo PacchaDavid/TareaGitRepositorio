@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+}
+
+main p {
+    text-align: center;
+}
+
+.campeonato {
+    padding: 2% 2%;
+    background-color: black;
+    width: 40%;
+    margin: 1% 29%;
+    text-align: center;
+}

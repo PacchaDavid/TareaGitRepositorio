@@ -1,0 +1,28 @@
+main {
+    height: 100vh;
+}
+
+.titulo {
+    display: flex;
+    margin: 2% 1%;
+}
+
+.titulo img {
+    width: 100px;
+    height: auto;
+}
+
+p {
+    text-align: center;
+}
+
+.jugador {
+    background-color: black;
+    padding: 1%;
+    width: 41%;
+    margin: 1% 29%
+}
+
+.jugador p {
+    text-align: left;
+}

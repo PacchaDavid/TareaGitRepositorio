@@ -1,0 +1,23 @@
+main {
+    height: 100vh;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+     text-align: center;
+}
+
+.equipo {
+    padding: 2%;
+    display: flex;
+    width: 50%;
+    background-color: black;
+    margin: 2% 24%
+}

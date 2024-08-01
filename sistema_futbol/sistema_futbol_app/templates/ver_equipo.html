@@ -2,10 +2,17 @@
 {% load static %}
 {% block title %}Ver {{ equipo_completo.equipo.nombre }}{% endblock %}
 {% block extra-css %}
+  <link rel="stylesheet" href="{% static 'css/ver_equipo.css' %}">
 {% endblock %}
 {% block content %}
-<h1>{{equipo_completo.equipo.nombre}}</h1>
-<h2>DT: {{ equipo_completo.dt.nombre }}</h2>
+<div class="titulo">
+  <img src="{{ equipo_completo.equipo.url_image }}" alt="Escudo del {{ equipo_completo.equipo.nombre }}">
+  <div>
+    <h1>{{equipo_completo.equipo.nombre}}</h1>
+    <h2>DT: {{ equipo_completo.dt.nombre }}</h2>
+  </div>
+</div>
+
 <p>Jugadores</p>
 {% for jugador_equipo in equipo_completo.jugadores %}
   <div class="jugador">
@@ -17,6 +24,6 @@
 {% endfor %}
 <p>Partidos</p>
 {% for partido in equipo_completo.partidos %}
-  <a href="{% url 'ver_partido' partido.id %}">{{ partido }}</a><br>
+  <p><a href="{% url 'ver_partido' partido.id %}">{{ partido }}</a><br></p>
 {% endfor %}
 {% endblock %}

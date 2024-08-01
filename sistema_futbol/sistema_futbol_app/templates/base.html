@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{% endblock %}</title>
   <link rel="icon" href="{% static 'imgs/futbol_logo.jpeg' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% block extra-css %} 
 
   {% endblock %}
@@ -20,7 +21,9 @@
       </ul>
     </nav>
   </header>
-  {% block content %}
-  {% endblock %}
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
 </body>
 </html>
