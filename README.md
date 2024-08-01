@@ -20,7 +20,8 @@ Vista Partido
 
 Diagrama de Clases:
 
-![sistema_futbol (1)](https://github.com/user-attachments/assets/57d2202b-e4d6-476d-b640-d605d6182675)
+![sistemaDeportes drawio](https://github.com/user-attachments/assets/26d21e47-f955-45b4-93ee-12e500bf2377)
+
 
 
 Tarea Gestión Hospital
