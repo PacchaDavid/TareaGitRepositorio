@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Ver {{ equipo_completo.equipo.nombre }}{% endblock %}
+{% block extra-css %}
+{% endblock %}
+{% block content %}
+<h1>{{equipo_completo.equipo.nombre}}</h1>
+<h2>DT: {{ equipo_completo.dt.nombre }}</h2>
+<p>Jugadores</p>
+{% for jugador_equipo in equipo_completo.jugadores %}
+  <div class="jugador">
+    <p><b>Nombre: {{ jugador_equipo.jugador.nombre }}</b></p>
+    <p>Edad: {{ jugador_equipo.jugador.edad }}</p>
+    <p>Número: {{ jugador_equipo.numero }}</p>
+    <img src="{{ jugador_equipo.jugador.url_image }}" alt="{{ jugador_equipo.jugador.nombre }}" style="width: 100px; height: auto;">
+  </div>
+{% endfor %}
+<p>Partidos</p>
+{% for partido in equipo_completo.partidos %}
+  <a href="{% url 'ver_partido' partido.id %}">{{ partido }}</a><br>
+{% endfor %}
+{% endblock %}

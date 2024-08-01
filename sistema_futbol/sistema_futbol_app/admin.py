@@ -17,4 +17,5 @@ admin.site.register(Cambio)
 admin.site.register(Gol)
 admin.site.register(Falta)
 admin.site.register(Tarjeta)
-
+admin.site.register(JugadorDeEquipo)
+admin.site.register(DirectorTecnico)

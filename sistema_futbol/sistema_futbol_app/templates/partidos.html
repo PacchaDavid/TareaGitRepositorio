@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Partidos{% endblock %}
+{% block extra-css %}
+{% endblock %}
+{% block content %}
+<h1>Partidos</h1>
+<p>Partidos</p>
+{% for item in partidos %}
+  <h3>{{ item.partido }}</h3>
+{% endfor %} 
+{% endblock %}

@@ -7,6 +7,7 @@ class Campeonato(models.Model):
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     finalizado = models.BooleanField(default=False)
+    sede = models.CharField(max_length=100)
 
     CATEGORIA_OPCIONES = [
         ('masculino','Masculino'),
@@ -30,7 +31,6 @@ class Campeonato(models.Model):
         blank = True
     )
 
-
     def __str__(self):
         return self.nombre
     
@@ -45,9 +45,7 @@ class Partido(models.Model):
     amistoso = models.BooleanField(default=False)
 
     def __str__(self):
-        equipo1String = self.equipo1.nombre
-        equipo2String = self.equipo2.nombre
-        return equipo1String + " vs " + equipo2String
+        return self.equipo1.abreviacion_nombre + ' vs ' + self.equipo2.abreviacion_nombre
 
 class Marcador(models.Model):
     partido = models.OneToOneField('Partido', on_delete=models.CASCADE)
@@ -55,7 +53,7 @@ class Marcador(models.Model):
     goles_equipo_2 = models.IntegerField()
 
     def __str__(self):
-        return self.partido
+        return self.partido.equipo1.nombre + ' ' + str(self.goles_equipo_1) + ' : ' + str(self.goles_equipo_2) + ' ' + self.partido.equipo2.nombre
 
 class RowTablaPosiciones(models.Model):
     posicion = models.IntegerField(blank=True)
@@ -70,9 +68,13 @@ class RowTablaPosiciones(models.Model):
     partidos_perdidos = models.IntegerField(default=0)
     TablaPosiciones = models.ForeignKey('TablaPosiciones', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.equipo.abreviacion_nombre + ' - ' + self.TablaPosiciones.campeonato.nombre
+
 class Equipo(models.Model):
-    nombre = models.CharField(max_length=50)
-    jugadores = models.ManyToManyField('Jugador')
+    nombre = models.CharField(max_length=100)
+    abreviacion_nombre = models.CharField(max_length=10)
+    url_image = models.TextField()
 
     def __str__(self):
         return self.nombre
@@ -83,17 +85,53 @@ class Jugador(models.Model):
         ('masculino','Masculino'),
         ('femenino','Femenino'),
     ]
+    url_image = models.TextField()
     nombre = models.CharField(max_length=50)
     edad = models.IntegerField()
-    numero = models.IntegerField()
     sexo = models.CharField(
         max_length = 10,
         choices = SEXO_OPCIONES,
         blank = True
     )
+    nacionalidad = models.CharField(max_length=50)
+    estatura = models.FloatField()
+
     def __str__(self):
         return self.nombre 
+    
+class JugadorDeEquipo(models.Model):
+    jugador = models.ForeignKey(Jugador,on_delete=models.CASCADE)
+    equipo = models.ForeignKey(Equipo,on_delete=models.CASCADE)
+    numero = models.IntegerField()
+    POSICION_OPCIONES = [
+        ('portero','Portero'),
+        ('lateral','Lateral'),
+        ('carrilero','Carrilero'),
+        ('libero','Líbero'),
+        ('defensa_central','Defensa central'),
+        ('centroCampista','Centrocampista'),
+        ('delantero','Delantero'),
+        ('extremo_izquierdo','Extremo izquierdo'),
+        ('extremo_derecho','Extremo derecho'),
+        ('media_punta','Media punta'),
+        ('falso_9','Falso nueve'),
+    ]
+    posicion = models.CharField(
+        max_length=50,
+        choices=POSICION_OPCIONES,
+        blank=True
+    )
 
+    def __str__(self):
+        return self.jugador.nombre + ' - ' + self.equipo.abreviacion_nombre
+
+class DirectorTecnico(models.Model):
+    nombre = models.CharField(max_length=50)
+    edad = models.IntegerField()
+    equipo = models.OneToOneField(Equipo,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
 
 class Arbitro(models.Model):
     nombre = models.CharField(max_length=50)
@@ -116,22 +154,24 @@ class Arbitro(models.Model):
 
 class Patrocinador(models.Model):
     nombre = models.CharField(max_length=50)
-    url = models.CharField(max_length=100)
-    campeonato = models.ForeignKey(Campeonato,on_delete=models.CASCADE, blank=True)
-    equipo = models.ForeignKey(Equipo,on_delete=models.CASCADE, blank=True)
-    jugador = models.ForeignKey(Jugador,on_delete=models.CASCADE, blank=True)
+    url_image = models.TextField()
+    campeonato = models.ForeignKey(Campeonato,on_delete=models.CASCADE, blank=True, null=True)
+    equipo = models.ForeignKey(Equipo,on_delete=models.CASCADE, blank=True, null=True)
+    jugador = models.ForeignKey(Jugador,on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return self.nombre
 
 class EstadisticaPartido(models.Model):
     partido = models.OneToOneField(Partido,on_delete=models.CASCADE)
+    campeonato = models.ForeignKey(Campeonato,on_delete=models.CASCADE, blank=True, null=True)
     tiros_esquina = models.IntegerField()
     tiros_libre = models.IntegerField()
-
     tiros_penales = models.IntegerField()
     minutos_agregados = models.IntegerField()
-    jugadores = models.ManyToManyField(Jugador)
-    arbitros = models.ManyToManyField(Arbitro)
 
-
+    def __str__(self):
+        return self.partido.__str__()
 
 class Cambio(models.Model):
     estadistica_partido = models.ForeignKey(EstadisticaPartido,on_delete=models.CASCADE)
@@ -141,7 +181,7 @@ class Cambio(models.Model):
     minuto = models.IntegerField()
 
     def __str__(self):
-        return self.jugador_entra + " por " + self.jugador_sale
+        return self.jugador_entra.__str__() + " por " + self.jugador_sale.__str__()
     
 class Gol(models.Model):
     estadistica_partido = models.ForeignKey(EstadisticaPartido,on_delete=models.CASCADE)
@@ -151,7 +191,7 @@ class Gol(models.Model):
     en_contra = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.jugador + " '" + str(self.minuto)
+        return self.jugador.nombre + " '" + str(self.minuto)
     
 class Falta(models.Model):
     estadistica_partido = models.ForeignKey(EstadisticaPartido,on_delete=models.CASCADE)
@@ -162,7 +202,7 @@ class Falta(models.Model):
     minuto = models.IntegerField()
 
     def __str__(self):
-        return self.jugador_cometio
+        return self.jugador_cometio.nombre + " cometio falta a " + self.jugador_recibio.nombre
 
 class Tarjeta(models.Model):
     estadistica_partido = models.ForeignKey(EstadisticaPartido,on_delete=models.CASCADE)
@@ -180,11 +220,13 @@ class Tarjeta(models.Model):
     minuto = models.IntegerField()
 
     def __str__(self):
-        return self.tipo_tarjeta
+        return self.tipo_tarjeta + " para " + self.jugador.nombre
 
 class EstadisticaJugador(models.Model):
     jugador = models.OneToOneField(Jugador,on_delete=models.CASCADE)
-    precision_pases = models.FloatField()
+
+    def __str__(self):
+        return 'Estadistica de ' + self.jugador.nombre
     
 
 class EstadisticaEquipo(models.Model):
@@ -194,17 +236,8 @@ class EstadisticaEquipo(models.Model):
     mejor_puntuacion = models.FloatField()
 
 class TablaPosiciones(models.Model):
-    campeonato = models.ForeignKey(Campeonato,on_delete=models.CASCADE)
+    campeonato = models.OneToOneField(Campeonato,on_delete=models.CASCADE)
 
     def __str__(self):
         return "Tabla de Posiciones - " + self.campeonato.nombre
     
-
-
-
-
-
-
-
-
-
