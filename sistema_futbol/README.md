@@ -7,3 +7,6 @@ Cómo instalar:
 - ¡Y listo! solo quedaría utilizar el comando "python manage.py runserver" para habilitar la navegación a través de la ruta "localhost:8000" en el navegador
 
 Los modelos se encuentran en la ruta sistema_futbol_app/models.py.
+
+Nuevamente el Diagrama de Clases (Por si acaso)
+![sistema_futbol (1)](https://github.com/user-attachments/assets/82cd4674-dc54-4672-aea6-044ad8e72509)
