@@ -5,7 +5,8 @@ Actualización:
 
 
 Diagrama de Clases:
-![sistemaDeportes drawio](https://github.com/user-attachments/assets/3f333e49-7611-47e5-9cf7-9bc519dd005f)
+
+![sistema_futbol](https://github.com/user-attachments/assets/68bf45d3-1645-4e7a-b7e4-1286f6cbb03c)
 
 Tarea Gestión Hospital
 ![gestion-Hospital](https://github.com/PacchaDavid/TareaGitRepositorio/assets/166522789/af79aedd-4711-4868-a254-92de4c880a43)
