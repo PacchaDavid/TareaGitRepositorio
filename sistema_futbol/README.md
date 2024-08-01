@@ -9,4 +9,5 @@ Cómo instalar:
 Los modelos se encuentran en la ruta sistema_futbol_app/models.py.
 
 Nuevamente el Diagrama de Clases (Por si acaso)
-![sistema_futbol (1)](https://github.com/user-attachments/assets/82cd4674-dc54-4672-aea6-044ad8e72509)
+
+![sistemaDeportes drawio](https://github.com/user-attachments/assets/8540a1c9-a5be-4075-b177-1afaaa8e24a2)
