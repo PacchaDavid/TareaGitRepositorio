@@ -5,7 +5,7 @@ Actualización:
 - código actualizado con vistas para los modelos implementados (Diagrama de clases abajo de las capturas)
 Diagrama de Clases:
 
-![sistemaDeportes drawio](https://github.com/user-attachments/assets/26d21e47-f955-45b4-93ee-12e500bf2377)
+![sistemaFutbol](https://github.com/user-attachments/assets/324be8c8-7409-428b-9c26-0abf60febfbc)
 
 
 
