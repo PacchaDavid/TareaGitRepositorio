@@ -2,7 +2,7 @@
 
 Actualización: 
 - Se actualizaron las vistas
-- Los modelos han sido separados en varios modelos dentro del directorio sistema_futbol_app/models/
+- Los modelos han sido separados en varios archivos dentro del directorio sistema_futbol_app/models/
 - Se implementaron las herencias para reutilización de código
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
