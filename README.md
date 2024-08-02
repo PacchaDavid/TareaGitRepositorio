@@ -1,4 +1,5 @@
 # TareaGitRepositorio
+<<<<<<< HEAD
 Tarea Sistema Futbol 
 Actualización:
 - código actualizado con vistas para los modelos implementados (Diagrama de clases abajo de las capturas)
@@ -22,6 +23,10 @@ Diagrama de Clases:
 
 ![sistema_futbol](https://github.com/user-attachments/assets/68bf45d3-1645-4e7a-b7e4-1286f6cbb03c)
 
+=======
+Tarea Sistema Fubtol
+![sistemaFutbol](https://github.com/user-attachments/assets/814423df-cdc5-4fae-b76d-53b935cdd392)
+>>>>>>> 40090087bd0dacb814dbb693e7a043ba2f99876d
 Tarea Gestión Hospital
 ![gestion-Hospital](https://github.com/PacchaDavid/TareaGitRepositorio/assets/166522789/af79aedd-4711-4868-a254-92de4c880a43)
 Tarea Gestión Biblioteca
