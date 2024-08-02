@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Campeonatos{% endblock %}
+{% block extra-css %}
+  <link rel="stylesheet" href="{% static 'css/campeonatos.css' %}">
+{% endblock %}
+{% block content %}
+  {% for campeonato in campeonatos%}
+    <div class="campeonato">
+      <div class="cabeza-campeonato">
+        <img src="{{ campeonato.url_image }}" alt="{{ campeonato.nombre }}">
+        <h2>{{ campeonato.nombre }}</h2>
+      </div><br>
+      <p>{{ campeonato.descripcion }}</p><br>
+      <p><b>Fecha de inicio: </b> {{ campeonato.fecha_inicio }}</p>
+      <p><b>Sede: </b> {{ campeonato.sede }}</p>
+      <p><a href="{% url 'equipos' campeonato.id %}">Equipos participantes</a></p>
+      <p><a href="{% url 'ver_tabla' campeonato.id %}">Tabla de posiciones</a></p>
+    </div>
+  {% endfor %}
+  <center>
+    <br><p><a href="{% url 'ver_todos_los_equipos' %}">Ver Todos Los equipos</a></p>
+  </center>
+  
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block extra-css %}
+  <style>
+    main {
+      height: 80vh;
+      text-align: center;
+      color: #fff;
+    }
+    img {
+      width: 30%;
+      height: auto;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+<br>
+  <h2>Bienvenido</h2>
+  <p>Este sistema le permitira visualizar y seguir los campeonatos para apoyar a sus equipos favoritos</p><br>
+  <img src="https://www.pnguniverse.com/wp-content/uploads/2020/09/Pelota-de-futbol-2-1024x1024.png" alt="pelota de futbol">
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Partidos {{ tabla.campeonato.nombre }}{% endblock %}
+{% block extra-css %}
+  <link rel="stylesheet" href="{% static 'css/partidos.css' %}">
+{% endblock %}
+{% block content %}
+<br>
+<br>
+<center>
+  <h2>Partidos - {{ tabla.campeonato.nombre }}</h2><br>
+  {% for partido in partidos %}
+    <a href="{% url 'ver_partido' partido.id %}"><h3>{{ partido }}</h3></a><br>
+  {% endfor %}
+</center>
+{% if numero_partidos < 8 %}
+    <style>
+      main {
+        height: 80vh;
+      }
+    </style>
+  {% else %}
+    <style>
+      main {
+        height: max-content;
+      }
+    </style>
+  {% endif %}
+  
+{% endblock %}

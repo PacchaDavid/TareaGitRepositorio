@@ -1,0 +1,27 @@
+.equipo {
+    background-color: black;
+    color: #fff;
+    padding: 2%;
+    width: 50%;
+    margin: 2% 29%;
+}
+
+.equipo img {
+    width: 100px;
+    height: 95px;
+}
+
+.equipo h2 {
+    margin: 5% 2%;
+}
+
+.equipo a {
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+
+main { 
+    padding: 1%;
+    height: max-content;
+}
