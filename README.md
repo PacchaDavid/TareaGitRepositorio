@@ -21,7 +21,9 @@ Vista Partido
 
 Diagrama de Clases:
 
-![sistema_futbol](https://github.com/user-attachments/assets/68bf45d3-1645-4e7a-b7e4-1286f6cbb03c)
+![sistemaDeportes drawio](https://github.com/user-attachments/assets/26d21e47-f955-45b4-93ee-12e500bf2377)
+
+
 
 =======
 Tarea Sistema Fubtol
