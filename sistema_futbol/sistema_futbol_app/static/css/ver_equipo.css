@@ -1,28 +1,51 @@
 main {
-    height: 100vh;
+    color: #fff;
+    text-align: center;
 }
 
-.titulo {
+.equipo {
+    width: 85%;
+    padding: 2%;
+}
+
+.cabeza-equipo {
+    width: 100%;
     display: flex;
-    margin: 2% 1%;
 }
 
-.titulo img {
+.cabeza-equipo img {
     width: 100px;
-    height: auto;
 }
 
-p {
+.cabeza-equipo h2 {
+    font-size: 48px;
+    padding-top: 10px;
+}
+
+.dt img {
+    width: 140px;
+}
+
+.jugador img {
+    width: 140px;
+    height: auto;
     text-align: center;
 }
 
 .jugador {
+    display: flex;
     background-color: black;
-    padding: 1%;
-    width: 41%;
-    margin: 1% 29%
+    padding: 2%;
+    width: 50%;
+    /* margin: 1% 24%; */
+    margin-left: 24%;
 }
 
-.jugador p {
+.info-jugador {
     text-align: left;
+    width: 70%;
+}
+
+h4 {
+    font-size: 30px;
 }

@@ -1,57 +1,75 @@
 from django.shortcuts import render
 from .models import *
 
-def inicio(request):
+def home(request):
     return render(request,'index.html')
 
 def campeonatos(request):
-    return render(request,'campeonatos.html',{'campeonatos':Campeonato.objects.all()})
+    return render(request,'campeonatos.html',{
+        'campeonatos' : Campeonato.objects.all()
+    })
 
-def equipos(request, id):
-    tabla_posiciones = TablaPosiciones.objects.get(campeonato_id=id)
-    tabla_rows = RowTablaPosiciones.objects.filter(TablaPosiciones_id=tabla_posiciones.id)
-    tabla_completa = {
-        'tabla_posiciones':tabla_posiciones,
-        'tabla_rows':tabla_rows
+def equipos(request,campeonato_id):
+    equipos = Campeonato.objects.get(id=campeonato_id).equipos_participantes()
+    context = {
+        'equipos' : tuple(equipos),
+        'campeonato' : Campeonato.objects.get(id=campeonato_id),
+        'numero_equipos' : equipos.__len__()
     }
-    for row in tabla_completa['tabla_rows']:    
-        print(row)
+    return render(request,'equipos.html',context)
 
-    return render(request,'equipos.html',{'tabla_completa':tabla_completa})
-
-def tabla_posiciones(request,id):
-    tabla_posiciones = TablaPosiciones.objects.get(campeonato_id=id)
-    tabla_rows = RowTablaPosiciones.objects.filter(TablaPosiciones_id=tabla_posiciones.id)
-    tabla_completa = {
-        'tabla_posiciones':tabla_posiciones,
-        'tabla_rows':tabla_rows
+def ver_equipo(request,id):
+    context = {
+        'equipo' : Equipo.objects.get(id=id),
+        'jugadores_equipo' : Equipo.objects.get(id=id).jugadores(),
+        'dt' : DirectorTecnico.objects.get(equipo_id=id)
     }
-    for row in tabla_completa['tabla_rows']:    
-        print(row)
+    return render(request,'ver_equipo.html', context)
 
-    return render(request,'tabla_posiciones.html',{'tabla_completa':tabla_completa})
+def ver_tabla(request,campeonato_id):
+    tabla = TablaPosiciones.objects.get(campeonato_id=campeonato_id)
+    rows = tabla.rows()
+    return render(request,'ver_tabla.html',{
+        'tabla' : tabla,
+        'rows' : rows,
+        'equipos_participantes' : rows.__len__()
+    }) 
 
-def partidos(request,id):
-    partidos = list(EstadisticaPartido.objects.filter(campeonato_id=id))
-
-    return render(request,'partidos.html',{'partidos':partidos})
-
-def ver_equipo(request, id):
-    equipo = Equipo.objects.get(id=id)
-    jugadores = list(JugadorDeEquipo.objects.filter(equipo_id=id))
-    partidos = list(Partido.objects.filter(equipo1_id=id))
-    for partido in list(Partido.objects.filter(equipo2_id=id)):
-        partidos.append(partido)
-
-    print(partidos)
-    equipo_completo = {
-        'equipo' : equipo,
-        'jugadores' : jugadores,
-        'dt' : DirectorTecnico.objects.get(equipo_id=id),
-        'partidos' : partidos
-    }
-    return render(request,'ver_equipo.html',{'equipo_completo' : equipo_completo})
-
+def partidos(request,tabla_id):
+    tabla = TablaPosiciones.objects.get(id=tabla_id)
+    partidos = tabla.partidos()
+    return render(request,'partidos.html',{
+        'partidos' : partidos,
+        'tabla' : tabla,
+        'numero_partidos' : partidos.__len__()
+    })
 
 def ver_partido(request,id):
-    return render(request,'ver_partido.html',{'partido' : Partido.objects.get(id=id)})
+    return render(request,'ver_partido.html',{
+        'partido' : Partido.objects.get(id=id)
+    })
+
+def ver_estadistica_partido(request,id):
+    estadistica_partido = EstadisticaPartido.objects.get(partido_id=id)
+    goles = Gol.objects.filter(estadistica_partido_id=estadistica_partido.id)
+    faltas = Falta.objects.filter(estadistica_partido_id=estadistica_partido.id)
+    cambios = Falta.objects.filter(estadistica_partido_id=estadistica_partido.id)
+    tarjetas = Tarjeta.objects.filter(estadistica_partido_id=estadistica_partido.id)
+    arbitros = Arbitro.objects.filter(estadistica_partido_id=estadistica_partido.id)
+    marcador = Marcador.objects.get(partido_id=id)
+
+    return render(request,'ver_estadistica_partido.html',{
+        'estadistica': estadistica_partido,
+        'goles' : goles,
+        'cambios' : cambios,
+        'faltas' : faltas,
+        'tarjetas' : tarjetas,
+        'arbitros' : arbitros,
+        'marcador' : marcador
+    })
+
+def ver_todos_los_equipos(request):
+    return render(request,'equipos.html',{
+        'equipos' : Equipo.objects.all()
+    })
+

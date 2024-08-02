@@ -5,19 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="icon" href="{% static 'imgs/futbol_logo.jpeg' %}">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  {% block extra-css %} 
-
+  <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/023/579/944/original/illustration-of-soccer-logo-it-s-for-success-concept-png.png">
+  {% block extra-css %}
   {% endblock %}
 </head>
 <body>
-  <header style="display: flex; width: 100%;">
-    <img src="{% static 'imgs/futbol_logo.jpeg' %}" alt="futbol_logo" style="width: 50px; height: 50px;">
+  <header>
+    <div class="titulo-img">
+      <img src="https://static.vecteezy.com/system/resources/previews/023/579/944/original/illustration-of-soccer-logo-it-s-for-success-concept-png.png" alt="fútbol logo">
+      <h1>Sistema Fútbolístico</h1>
+    </div>
     <nav>
       <ul>
-        <li><a href="{% url 'inicio' %}">Home</a></li>
-        <li style="margin-left: 4%;"><a href="{% url 'campeonatos' %}">campeonatos</a></li>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'campeonatos' %}">Campeonatos</a></li>
       </ul>
     </nav>
   </header>

@@ -1,23 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Ver {{ equipo_completo.equipo.nombre }}{% endblock %}
+{% block title %} {{ partido }} {% endblock %}
 {% block extra-css %}
   <link rel="stylesheet" href="{% static 'css/ver_partido.css' %}">
 {% endblock %}
 {% block content %}
-{% if partido.amistoso %}
-  <h2>Partido Amitoso</h2>
-{% endif %}
-<h1>{{ partido }}</h1>
-<div class="enfrentamiento" style="display: flex;">
-  <img src="{{ partido.equipo1.url_image }}" alt="{ partido.equipo1.nombre }">
-  <img src="{{ partido.equipo2.url_image }}" alt="{ partido.equipo2.nombre }">
-</div>
-  {% if partido.finalizado %}
-    <p>Finalizado: {{ partido.fecha }}</p>
-  {% else %}
-    <p>Fecha: {{ partido.fecha }}</p>
-    <p>Hora: {{ partido.hora }} (Ecuador)</p>
-    <p>Escenario: {{ partido.escenario }}</p>
+  <div class="partido">
+    <h2>{{ partido }}</h2><br>
+    <div class="match">
+      <img src="{{ partido.equipo1.url_image }}" alt="{{ partido.equipo1.nombre }}">
+      <img src="{{ partido.equipo2.url_image }}" alt="{{ partido.equipo2.nombre }}">
+    </div><br>
+  </div>
+  {% if partido.amistoso %}
+    <h3>Partido Amistoso</h3>  
   {% endif %}
+  {% if not partido.finalizado %}
+    <p><b>Fecha: </b>{{ partido.fecha }}</p>
+    <p><b>Hora: </b>{{ partido.hora }}</p>
+    <p><b>Lugar: </b>{{ partido.escenario }}</p>
+    <p><b>Duración: </b>{{ partido.duracion_minutos }} min</p><br><br>
+  {% else %}
+    <p><b>Finalizado: </b>{{ partido.fecha }}</p><br><br>
+  {% endif %}  
+  <p><a href="{% url 'ver_estadistica_partido' partido.id %}"><b>Estadísticas</b></a></p>
 {% endblock %}

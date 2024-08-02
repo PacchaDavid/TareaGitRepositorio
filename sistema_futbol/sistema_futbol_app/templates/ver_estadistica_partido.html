@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Estadistica {{ partido }} {% endblock %}
+{% block extra-css %}
+  <link rel="stylesheet" href="{% static 'css/ver_partido.css' %}">
+{% endblock %}
+{% block content %}
+    <h2>{{ estadistica }}</h2><br>
+    <h2>{{ marcador }}</h2><br>
+    <p><b>Minutos agregados:</b> {{ estadistica.minutos_agregados }}</p>
+    <p><b>Tiros de Esquina:</b> {{ estadistica.tiros_esquina }}</p>
+    <p><b>Tiros libres: </b> {{ estadistica.tiros_libres }}</p><br>
+
+    {% if arbitros %}
+      <h3>Arbitros</h3>
+      {% for arbitro in arbitros %}
+        <p>{{ arbitro }}</p><br>
+      {% endfor %}
+    {% endif %}    
+    
+    {% if goles %}
+      <h3>Goles</h3>
+      {% for gol in goles %}
+        <p>{{ gol }}</p><br>
+      {% endfor %}
+    {% endif %}
+
+    {% if faltas %}
+      <h3>Faltas</h3>
+      {% for falta in faltas %}
+        <p>{{ falta }}</p><br>
+      {% endfor %}
+    {% endif %}
+
+    {% if cambios %}
+      <h3>Cambios</h3>
+      {% for cambio in cambios %}
+        <p>{{ cambio }}</p><br>
+      {% endfor %}
+    {% endif %}
+
+    {% if tarjetas %}
+    <h3>Tarjetas</h3>
+    {% for tarjeta in tarjetas %}
+      <p>{{ tarjeta }}</p><br>
+    {% endfor %}
+    {% endif %}
+
+{% endblock %}

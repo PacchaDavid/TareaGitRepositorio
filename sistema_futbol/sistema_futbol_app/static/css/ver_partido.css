@@ -1,13 +1,25 @@
-h1 {
-    margin-left: 4%;
-}
-
-div img {
-    width: 100px;
-    height: auto;
-    margin-left: 3%;
-}
-
 main {
-    height: 100vh;
+    padding: 2%;
+    text-align: center;
+    height: 78vh;
+    color: #fff;
+}
+
+h2 { 
+    color: #fff;
+}
+
+.match img {
+    width: 120px;
+    height: auto;
+}
+
+.match {
+    display: flex;
+    margin-left: 40.5%;
+}
+
+main a {
+    color: #365df6;;
+    text-decoration: none;
 }

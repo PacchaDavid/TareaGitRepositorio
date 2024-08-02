@@ -5,19 +5,21 @@
   <link rel="stylesheet" href="{% static 'css/campeonatos.css' %}">
 {% endblock %}
 {% block content %}
-<h1>Campeonatos</h1>
-<p>En esta página se mostrarán los campeonatos</p>
-{% for campeonato in campeonatos %}
-  <div class="campeonato">
-    <h2>{{ campeonato.nombre }}</h2>
-    <p>Descripción: {{ campeonato.descripcion }}</p>
-    <p>Fecha de Inicio: {{ campeonato.fecha_inicio }}</p>
-    <p>Fecha de Finalización: {{ campeonato.fecha_fin }}</p>
-    <p>Categoria: {{ campeonato.categoria }}</p>
-    <p>Modalidad: {{ campeonato.modalidad }}</p>
-    <p><a href="{% url 'equipos' campeonato.id %}">Equipos participantes</a></p>
-    <p><a href="{% url 'tabla_posiciones' campeonato.id %}">Tabla de posiciones</a></p>
-    <p></p>
-  </div>
-{% endfor %}
+  {% for campeonato in campeonatos%}
+    <div class="campeonato">
+      <div class="cabeza-campeonato">
+        <img src="{{ campeonato.url_image }}" alt="{{ campeonato.nombre }}">
+        <h2>{{ campeonato.nombre }}</h2>
+      </div><br>
+      <p>{{ campeonato.descripcion }}</p><br>
+      <p><b>Fecha de inicio: </b> {{ campeonato.fecha_inicio }}</p>
+      <p><b>Sede: </b> {{ campeonato.sede }}</p>
+      <p><a href="{% url 'equipos' campeonato.id %}">Equipos participantes</a></p>
+      <p><a href="{% url 'ver_tabla' campeonato.id %}">Tabla de posiciones</a></p>
+    </div>
+  {% endfor %}
+  <center>
+    <br><p><a href="{% url 'ver_todos_los_equipos' %}">Ver Todos Los equipos</a></p>
+  </center>
+  
 {% endblock %}

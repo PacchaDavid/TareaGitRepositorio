@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Tabla de Posiciones {{ tabla.campeonato.nombre }} {% endblock %}
+{% block extra-css %}
+  <link rel="stylesheet" href="{% static 'css/ver_tabla.css' %}">
+{% endblock %}
+{% block content %}
+<br>
+<br>
+  <center><h2>Tabla de Posiciones {{ tabla.campeonato.nombre }}</h2></center>br
+  <center><a href="{% url 'partidos' tabla.id %}">Partidos</a></center><br>
+  <table>
+    <tr>
+      <th>Posición</th>
+      <th colspan="2">Equipo</th>
+      <th>Puntos</th>
+      <th>GF</th>
+      <th>GC</th>
+      <th>DG</th>
+      <th>Victorias</th>
+      <th>Empates</th>
+      <th>Derrotas</th>
+    </tr>
+    {% for row in rows %}
+    <tr>
+      <td>{{ row.posicion }}</td>
+      <td><img src="{{ row.equipo.url_image }}" alt="{{ row.equipo.nombre }}" style="width: 30px; height: auto;"></td>
+      <td>{{ row.equipo.nombre }}</td>
+      <td>{{ row.puntos }}</td>
+      <td>{{ row.gf }}</td>
+      <td>{{ row.gc }}</td>
+      <td>{{ row.dg }}</td>
+      <td>{{ row.victorias }}</td>
+      <td>{{ row.empates }}</td>
+      <td>{{ row.derrotas }}</td>
+    </tr>
+    {% endfor %}
+  </table><br>
+  {% if equipos_participantes < 8 %}
+    <style>
+      main {
+        height: 79vh;
+      }
+    </style>
+  {% else %}
+    <style>
+      main {
+        height: max-content;
+      }
+    </style>
+  {% endif %}
+{% endblock %}
