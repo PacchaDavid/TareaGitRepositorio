@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BinaryTreeGUI extends JFrame {
+public class InterfazGraficaArbol extends JFrame {
     private ArbolBinario arbol;
     private JTextField textoInsertar;
     private JTextField textoEliminar;
@@ -11,7 +11,7 @@ public class BinaryTreeGUI extends JFrame {
     private JButton botonEliminar;
     private JPanel panelDibujo;
 
-    public BinaryTreeGUI() {
+    public InterfazGraficaArbol() {
         arbol = new ArbolBinario();
 
         setTitle("Arbol de Búsqueda Binaria");
@@ -29,7 +29,7 @@ public class BinaryTreeGUI extends JFrame {
                     textoInsertar.setText("");
                     panelDibujo.repaint();
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(BinaryTreeGUI.this,
+                    JOptionPane.showMessageDialog(InterfazGraficaArbol.this,
                             "Ingrese un valor entero válido",
                             "Entrada no válida",
                             JOptionPane.ERROR_MESSAGE);
@@ -48,13 +48,13 @@ public class BinaryTreeGUI extends JFrame {
                         textoEliminar.setText("");
                         panelDibujo.repaint();
                     } else {
-                        JOptionPane.showMessageDialog(BinaryTreeGUI.this,
+                        JOptionPane.showMessageDialog(InterfazGraficaArbol.this,
                                 "Valor no encontrado",
                                 "Nodo no encontrado",
                                 JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(BinaryTreeGUI.this,
+                    JOptionPane.showMessageDialog(InterfazGraficaArbol.this,
                             "Ingrese un valor entero válido",
                             "Entrada no válida",
                             JOptionPane.ERROR_MESSAGE);
@@ -119,7 +119,7 @@ public class BinaryTreeGUI extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new BinaryTreeGUI().setVisible(true);
+                new InterfazGraficaArbol().setVisible(true);
             }
         });
     }
