@@ -9,11 +9,11 @@ La interfaz fue creada utilizando NetBeans
 
 Para ejecutar la interfaz:
 
-- Clone o descarge el repositorio en su equipo
-- Abrir Apache NetBeans
+- Clone o descargue el repositorio en su equipo.
+- Abrir Apache NetBeans.
 - File -> Open Project -> (la ruta donde se encuentra el proyecto "InterfazGraficaArbol")
 - Una vez abierto el proyecto, hay que buscar e ingresar a la Clase InterFazGraficaArbol.java que se encuentra en el paquete interfazGraficaArbolBinario dentro del directorio "src/" en la raíz del proyecto.
-- Ejecutar la Clase utilizando el play verde, o dando click derecho a la clase y seleccionar la opcion "run file"
+- Ejecutar la Clase utilizando el play verde, o dando click derecho a la clase y seleccionar la opcion "run file".
 
 Capturas:
 
