@@ -3,7 +3,7 @@ Interfaz Grafica Arbol
 
 Diagrama de Clases
 
-![arbolBinario](https://github.com/user-attachments/assets/5629a6d2-b0ba-41f7-add1-ba0b38562fdd)
+![arbolBinario drawio](https://github.com/user-attachments/assets/e590a2c1-072f-414b-8da3-df73ebf5a345)
 
 La interfaz fue creada utilizando NetBeans
 
