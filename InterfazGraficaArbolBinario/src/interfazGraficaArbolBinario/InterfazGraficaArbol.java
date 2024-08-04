@@ -27,7 +27,7 @@ public class InterfazGraficaArbol extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     int valor = Integer.parseInt(textoInsertar.getText().trim());
-                    arbol.insert(valor);
+                    arbol.insertar(valor);
                     textoInsertar.setText("");
                     panelDibujo.repaint();
                 } catch (NumberFormatException ex) {
@@ -137,87 +137,87 @@ public class InterfazGraficaArbol extends JFrame {
             return raiz;
         }
 
-        public void insert(int valor) {
-            raiz = insertRec(raiz, valor);
+        public void insertar(int valor) {
+            raiz = insertarRecursivo(raiz, valor);
         }
 
-        private NodoArbol insertRec(NodoArbol raiz, int valor) {
+        private NodoArbol insertarRecursivo(NodoArbol raiz, int valor) {
             if (raiz == null) {
                 raiz = new NodoArbol(valor);
                 return raiz;
             }
             if (valor < raiz.value) {
-                raiz.izquierda = insertRec(raiz.izquierda, valor);
+                raiz.izquierda = insertarRecursivo(raiz.izquierda, valor);
             } else if (valor > raiz.value) {
-                raiz.derecha = insertRec(raiz.derecha, valor);
+                raiz.derecha = insertarRecursivo(raiz.derecha, valor);
             }
             return raiz;
         }
 
         public boolean eliminar(int valor) {
-            NodoArbol parent = null;
-            NodoArbol current = raiz;
-            boolean isLeftChild = false;
+            NodoArbol padre = null;
+            NodoArbol actual = raiz;
+            boolean hijoIzquierdo = false;
 
 
-            while (current != null && current.value != valor) {
-                parent = current;
-                if (valor < current.value) {
-                    current = current.izquierda;
-                    isLeftChild = true;
+            while (actual != null && actual.value != valor) {
+                padre = actual;
+                if (valor < actual.value) {
+                    actual = actual.izquierda;
+                    hijoIzquierdo = true;
                 } else {
-                    current = current.derecha;
-                    isLeftChild = false;
+                    actual = actual.derecha;
+                    hijoIzquierdo = false;
                 }
             }
 
 
-            if (current == null) {
+            if (actual == null) {
                 return false;
             }
 
-            if (current.izquierda == null && current.derecha == null) {
-                if (current == raiz) {
+            if (actual.izquierda == null && actual.derecha == null) {
+                if (actual == raiz) {
                     raiz = null;
-                } else if (isLeftChild) {
-                    parent.izquierda = null;
+                } else if (hijoIzquierdo) {
+                    padre.izquierda = null;
                 } else {
-                    parent.derecha = null;
+                    padre.derecha = null;
                 }
             }
 
-            else if (current.derecha == null) {
-                if (current == raiz) {
-                    raiz = current.izquierda;
-                } else if (isLeftChild) {
-                    parent.izquierda = current.izquierda;
+            else if (actual.derecha == null) {
+                if (actual == raiz) {
+                    raiz = actual.izquierda;
+                } else if (hijoIzquierdo) {
+                    padre.izquierda = actual.izquierda;
                 } else {
-                    parent.derecha = current.izquierda;
+                    padre.derecha = actual.izquierda;
                 }
-            } else if (current.izquierda == null) {
-                if (current == raiz) {
-                    raiz = current.derecha;
-                } else if (isLeftChild) {
-                    parent.izquierda = current.derecha;
+            } else if (actual.izquierda == null) {
+                if (actual == raiz) {
+                    raiz = actual.derecha;
+                } else if (hijoIzquierdo) {
+                    padre.izquierda = actual.derecha;
                 } else {
-                    parent.derecha = current.derecha;
+                    padre.derecha = actual.derecha;
                 }
             }
 
             else {
 
-                NodoArbol siguiente = getSiguiente(current);
+                NodoArbol siguiente = getSiguiente(actual);
 
   
-                if (current == raiz) {
+                if (actual == raiz) {
                     raiz = siguiente;
-                } else if (isLeftChild) {
-                    parent.izquierda = siguiente;
+                } else if (hijoIzquierdo) {
+                    padre.izquierda = siguiente;
                 } else {
-                    parent.derecha = siguiente;
+                    padre.derecha = siguiente;
                 }
 
-                siguiente.izquierda = current.izquierda;
+                siguiente.izquierda = actual.izquierda;
             }
 
             return true;
@@ -226,12 +226,12 @@ public class InterfazGraficaArbol extends JFrame {
         private NodoArbol getSiguiente(NodoArbol nodo) {
             NodoArbol successorParent = nodo;
             NodoArbol siguiente = nodo;
-            NodoArbol current = nodo.derecha;
+            NodoArbol actual = nodo.derecha;
 
-            while (current != null) {
+            while (actual != null) {
                 successorParent = siguiente;
-                siguiente = current;
-                current = current.izquierda;
+                siguiente = actual;
+                actual = actual.izquierda;
             }
 
             if (siguiente != nodo.derecha) {
