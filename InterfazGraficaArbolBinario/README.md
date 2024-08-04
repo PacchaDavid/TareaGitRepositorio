@@ -9,6 +9,8 @@ La interfaz fue creada utilizando NetBeans
 
 - El método main se encuentra en la línea 120 del código.
 - Las clases del diagrama que son una representación de la capa lógica del proyecto se encuentran a partir de la línea 129.
+
+Digo "representación" porque realmente el proyecto no está separado en arquitectura o modelo de capas, sino mas bien en un sólo archivo.
   
 ---------------------------------------------------------------------------------------------------------------
 
