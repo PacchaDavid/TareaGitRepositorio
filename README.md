@@ -1,6 +1,9 @@
 # TareaGitRepositorio
 Tarea Sistema Fubtol
-![sistemaFutbol](https://github.com/user-attachments/assets/814423df-cdc5-4fae-b76d-53b935cdd392)
+
+![sistemaFutbol](https://github.com/user-attachments/assets/77177889-6043-4322-8aeb-f0a2696aa03b)
+
+
 Tarea Gestión Hospital
 ![gestion-Hospital](https://github.com/PacchaDavid/TareaGitRepositorio/assets/166522789/af79aedd-4711-4868-a254-92de4c880a43)
 Tarea Gestión Biblioteca
