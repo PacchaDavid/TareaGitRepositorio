@@ -4,9 +4,9 @@ Tarea Sistema Futbol: (más información en el README dentro del directorio sist
 
 Diagrama de Clases:
 
-![sistemaFutbol](https://github.com/user-attachments/assets/324be8c8-7409-428b-9c26-0abf60febfbc)
+![sistemaFutbol](https://github.com/user-attachments/assets/abf7f717-3686-40aa-9bfb-c049e3392e35)
 
-===========================================================================================================================================================================
+=============================================================
 Tarea Gestión Hospital
 ![gestion-Hospital](https://github.com/PacchaDavid/TareaGitRepositorio/assets/166522789/af79aedd-4711-4868-a254-92de4c880a43)
 Tarea Gestión Biblioteca
