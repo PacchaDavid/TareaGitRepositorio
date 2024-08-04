@@ -3,15 +3,17 @@ Interfaz Grafica Arbol
 
 Diagrama de Clases
 
-....
+![arbolBinario](https://github.com/user-attachments/assets/5629a6d2-b0ba-41f7-add1-ba0b38562fdd)
 
 La interfaz fue creada utilizando NetBeans
 
-Para ejecutar la interfaz primero descargue el archivo InterfazGraficaArbol.java y ábralo utilizando su IDE de preferencia, tiene que tener instalada una versión 
-de jdk para que funcione correctamente.
+Para ejecutar la interfaz:
 
-
-
+- Clone o descarge el repositorio en su equipo
+- Abrir Apache NetBeans
+- File -> Open Project -> (la ruta donde se encuentra el proyecto "InterfazGraficaArbol")
+- Una vez abierto el proyecto, hay que buscar e ingresar a la Clase InterFazGraficaArbol.java que se encuentra en el paquete interfazGraficaArbolBinario dentro del directorio "src/" en la raíz del proyecto.
+- Ejecutar la Clase utilizando el play verde, o dando click derecho a la clase y seleccionar la opcion "run file"
 
 Capturas:
 
