@@ -224,18 +224,18 @@ public class InterfazGraficaArbol extends JFrame {
         }
 
         private NodoArbol getSiguiente(NodoArbol nodo) {
-            NodoArbol successorParent = nodo;
+            NodoArbol padreSiguiente = nodo;
             NodoArbol siguiente = nodo;
             NodoArbol actual = nodo.derecha;
 
             while (actual != null) {
-                successorParent = siguiente;
+                padreSiguiente = siguiente;
                 siguiente = actual;
                 actual = actual.izquierda;
             }
 
             if (siguiente != nodo.derecha) {
-                successorParent.izquierda = siguiente.derecha;
+                padreSiguiente.izquierda = siguiente.derecha;
                 siguiente.derecha = nodo.derecha;
             }
 
