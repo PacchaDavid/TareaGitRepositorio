@@ -7,6 +7,11 @@ Diagrama de Clases
 
 La interfaz fue creada utilizando NetBeans
 
+- El método main se encuentra en la línea 120 del código.
+- Las clases del diagrama que son una representación de la capa lógica del proyecto se encuentran a partir de la línea 129.
+  
+---------------------------------------------------------------------------------------------------------------
+
 Para ejecutar la interfaz:
 
 - Clone o descargue el repositorio en su equipo.
