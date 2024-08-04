@@ -48,9 +48,5 @@ Vista estadistica partido 'ver_estadistica_partido/<int:id>/'
 
 Diagrama de clases
 
-![sistemaFutbol](https://github.com/user-attachments/assets/4db6fb0d-8a74-4a86-9d09-3da2b17c2d96)
-
-
-
-
+![sistemaFutbol](https://github.com/user-attachments/assets/149da877-30d8-458a-b1ce-8f9448c90454)
 
