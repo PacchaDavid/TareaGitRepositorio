@@ -10,7 +10,7 @@ Actualización:
 Instrucciones para instalación
 - Clonar o descargar el repositorio en la rama develop
 - Abrir la carpeta sistema_futbol con su IDE de preferencia
-- Iniciar un nuevo entorno virtual en el directorio raíz del proyecto automático en algunos Entornos de Desarrollo
+- Iniciar un nuevo entorno virtual en el directorio raíz del proyecto (automático en algunos Entornos de Desarrollo)
 - Ejecutar en la consola el siguiente comando 'pip install -r requirements.txt' (debe tener instalado el gestor de paquetes y dependencias pip)
 - Ejecutar el comando: 'python manage.py runserver'
 - Abrir el navegador y escribir la ruta 'localhost:8000'
