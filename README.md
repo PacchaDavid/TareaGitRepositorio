@@ -1,6 +1,7 @@
 # TareaGitRepositorio
 
 Tarea Sistema Futbol: (más información en el README dentro del directorio sistema_futbol)
+
 Diagrama de Clases:
 
 ![sistemaFutbol](https://github.com/user-attachments/assets/324be8c8-7409-428b-9c26-0abf60febfbc)
