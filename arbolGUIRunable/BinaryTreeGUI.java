@@ -4,114 +4,114 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BinaryTreeGUI extends JFrame {
-    private BinaryTree tree;
-    private JTextField insertField;
-    private JTextField deleteField;
-    private JButton insertButton;
-    private JButton deleteButton;
-    private JPanel drawingPanel;
+    private ArbolBinario arbol;
+    private JTextField textoInsertar;
+    private JTextField textoEliminar;
+    private JButton botonInsertar;
+    private JButton botonEliminar;
+    private JPanel panelDibujo;
 
     public BinaryTreeGUI() {
-        tree = new BinaryTree();
+        arbol = new ArbolBinario();
 
-        setTitle("Binary Tree GUI");
+        setTitle("Arbol de Búsqueda Binaria");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        insertField = new JTextField(10);
-        insertButton = new JButton("Insert");
-        insertButton.addActionListener(new ActionListener() {
+        textoInsertar = new JTextField(10);
+        botonInsertar = new JButton("Insertar");
+        botonInsertar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int value = Integer.parseInt(insertField.getText().trim());
-                    tree.insert(value);
-                    insertField.setText("");
-                    drawingPanel.repaint();
+                    int valor = Integer.parseInt(textoInsertar.getText().trim());
+                    arbol.insert(valor);
+                    textoInsertar.setText("");
+                    panelDibujo.repaint();
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(BinaryTreeGUI.this,
-                            "Please enter a valid integer value",
-                            "Invalid Input",
+                            "Ingrese un valor entero válido",
+                            "Entrada no válida",
                             JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
 
-        deleteField = new JTextField(10);
-        deleteButton = new JButton("Delete");
-        deleteButton.addActionListener(new ActionListener() {
+        textoEliminar = new JTextField(10);
+        botonEliminar = new JButton("Eliminar");
+        botonEliminar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int value = Integer.parseInt(deleteField.getText().trim());
-                    if (tree.delete(value)) {
-                        deleteField.setText("");
-                        drawingPanel.repaint();
+                    int valor = Integer.parseInt(textoEliminar.getText().trim());
+                    if (arbol.eliminar(valor)) {
+                        textoEliminar.setText("");
+                        panelDibujo.repaint();
                     } else {
                         JOptionPane.showMessageDialog(BinaryTreeGUI.this,
-                                "Value not found in the tree",
-                                "Node Not Found",
+                                "Valor no encontrado",
+                                "Nodo no encontrado",
                                 JOptionPane.ERROR_MESSAGE);
                     }
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(BinaryTreeGUI.this,
-                            "Please enter a valid integer value",
-                            "Invalid Input",
+                            "Ingrese un valor entero válido",
+                            "Entrada no válida",
                             JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
 
-        drawingPanel = new JPanel() {
+        panelDibujo = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Draw the binary tree
-                if (tree.getRoot() != null) {
-                    drawTree(g, getWidth() / 2, 30, tree.getRoot(), getWidth() / 4);
+                
+                if (arbol.getRaiz() != null) {
+                    drawTree(g, getWidth() / 2, 30, arbol.getRaiz(), getWidth() / 4);
                 }
             }
         };
-        drawingPanel.setPreferredSize(new Dimension(800, 600));
+        panelDibujo.setPreferredSize(new Dimension(800, 600));
 
-        JPanel insertPanel = new JPanel();
-        insertPanel.add(new JLabel("Insert value:"));
-        insertPanel.add(insertField);
-        insertPanel.add(insertButton);
+        JPanel panelInsertar = new JPanel();
+        panelInsertar.add(new JLabel("Insertar valor:"));
+        panelInsertar.add(textoInsertar);
+        panelInsertar.add(botonInsertar);
 
         JPanel deletePanel = new JPanel();
-        deletePanel.add(new JLabel("Delete value:"));
-        deletePanel.add(deleteField);
-        deletePanel.add(deleteButton);
+        deletePanel.add(new JLabel("Eliminar valor:"));
+        deletePanel.add(textoEliminar);
+        deletePanel.add(botonEliminar);
 
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new GridLayout(2, 1));
-        inputPanel.add(insertPanel);
+        inputPanel.add(panelInsertar);
         inputPanel.add(deletePanel);
 
         add(inputPanel, BorderLayout.NORTH);
-        add(drawingPanel, BorderLayout.CENTER);
+        add(panelDibujo, BorderLayout.CENTER);
 
         pack();
-        setLocationRelativeTo(null); // Center the frame
+        setLocationRelativeTo(null); 
     }
 
-    private void drawTree(Graphics g, int x, int y, BinaryTree.TreeNode node, int xOffset) {
+    private void drawTree(Graphics g, int x, int y, ArbolBinario.NodoArbol nodo, int xOffset) {
         g.setColor(Color.black);
-        g.drawString(String.valueOf(node.data), x, y);
-        if (node.left != null) {
-            // Draw left subtree
+        g.drawString(String.valueOf(nodo.value), x, y);
+        if (nodo.izquierda != null) {
+            
             int newX = x - xOffset;
             int newY = y + 50;
             g.drawLine(x, y, newX, newY);
-            drawTree(g, newX, newY, node.left, xOffset / 2);
+            drawTree(g, newX, newY, nodo.izquierda, xOffset / 2);
         }
-        if (node.right != null) {
-            // Draw right subtree
+        if (nodo.derecha != null) {
+    
             int newX = x + xOffset;
             int newY = y + 50;
             g.drawLine(x, y, newX, newY);
-            drawTree(g, newX, newY, node.right, xOffset / 2);
+            drawTree(g, newX, newY, nodo.derecha, xOffset / 2);
         }
     }
 
@@ -124,135 +124,130 @@ public class BinaryTreeGUI extends JFrame {
         });
     }
 
-    // Inner class for BinaryTree implementation
-    private class BinaryTree {
-        private TreeNode root;
+    private class ArbolBinario {
+        private NodoArbol raiz;
 
-        public BinaryTree() {
-            root = null;
+        public ArbolBinario() {
+            raiz = null;
         }
 
-        public TreeNode getRoot() {
-            return root;
+        public NodoArbol getRaiz() {
+            return raiz;
         }
 
-        public void insert(int value) {
-            root = insertRec(root, value);
+        public void insert(int valor) {
+            raiz = insertRec(raiz, valor);
         }
 
-        private TreeNode insertRec(TreeNode root, int value) {
-            if (root == null) {
-                root = new TreeNode(value);
-                return root;
+        private NodoArbol insertRec(NodoArbol raiz, int valor) {
+            if (raiz == null) {
+                raiz = new NodoArbol(valor);
+                return raiz;
             }
-            if (value < root.data) {
-                root.left = insertRec(root.left, value);
-            } else if (value > root.data) {
-                root.right = insertRec(root.right, value);
+            if (valor < raiz.value) {
+                raiz.izquierda = insertRec(raiz.izquierda, valor);
+            } else if (valor > raiz.value) {
+                raiz.derecha = insertRec(raiz.derecha, valor);
             }
-            return root;
+            return raiz;
         }
 
-        public boolean delete(int value) {
-            TreeNode parent = null;
-            TreeNode current = root;
+        public boolean eliminar(int valor) {
+            NodoArbol parent = null;
+            NodoArbol current = raiz;
             boolean isLeftChild = false;
 
-            // Find the node to delete and its parent
-            while (current != null && current.data != value) {
+
+            while (current != null && current.value != valor) {
                 parent = current;
-                if (value < current.data) {
-                    current = current.left;
+                if (valor < current.value) {
+                    current = current.izquierda;
                     isLeftChild = true;
                 } else {
-                    current = current.right;
+                    current = current.derecha;
                     isLeftChild = false;
                 }
             }
 
-            // If node not found
+
             if (current == null) {
                 return false;
             }
 
-            // Case 1: Node to be deleted has no children (leaf node)
-            if (current.left == null && current.right == null) {
-                if (current == root) {
-                    root = null;
+            if (current.izquierda == null && current.derecha == null) {
+                if (current == raiz) {
+                    raiz = null;
                 } else if (isLeftChild) {
-                    parent.left = null;
+                    parent.izquierda = null;
                 } else {
-                    parent.right = null;
+                    parent.derecha = null;
                 }
             }
-            // Case 2: Node to be deleted has only one child
-            else if (current.right == null) {
-                if (current == root) {
-                    root = current.left;
+
+            else if (current.derecha == null) {
+                if (current == raiz) {
+                    raiz = current.izquierda;
                 } else if (isLeftChild) {
-                    parent.left = current.left;
+                    parent.izquierda = current.izquierda;
                 } else {
-                    parent.right = current.left;
+                    parent.derecha = current.izquierda;
                 }
-            } else if (current.left == null) {
-                if (current == root) {
-                    root = current.right;
+            } else if (current.izquierda == null) {
+                if (current == raiz) {
+                    raiz = current.derecha;
                 } else if (isLeftChild) {
-                    parent.left = current.right;
+                    parent.izquierda = current.derecha;
                 } else {
-                    parent.right = current.right;
+                    parent.derecha = current.derecha;
                 }
             }
-            // Case 3: Node to be deleted has two children
+
             else {
-                // Find the successor (smallest node in the right subtree)
-                TreeNode successor = getSuccessor(current);
 
-                // Connect parent of current to successor
-                if (current == root) {
-                    root = successor;
+                NodoArbol siguiente = getSiguiente(current);
+
+  
+                if (current == raiz) {
+                    raiz = siguiente;
                 } else if (isLeftChild) {
-                    parent.left = successor;
+                    parent.izquierda = siguiente;
                 } else {
-                    parent.right = successor;
+                    parent.derecha = siguiente;
                 }
 
-                // Connect successor to current's left child
-                successor.left = current.left;
+                siguiente.izquierda = current.izquierda;
             }
 
             return true;
         }
 
-        private TreeNode getSuccessor(TreeNode node) {
-            TreeNode successorParent = node;
-            TreeNode successor = node;
-            TreeNode current = node.right;
+        private NodoArbol getSiguiente(NodoArbol nodo) {
+            NodoArbol successorParent = nodo;
+            NodoArbol siguiente = nodo;
+            NodoArbol current = nodo.derecha;
 
             while (current != null) {
-                successorParent = successor;
-                successor = current;
-                current = current.left;
+                successorParent = siguiente;
+                siguiente = current;
+                current = current.izquierda;
             }
 
-            // If successor is not the right child of node to be deleted,
-            // link successor's right child to successorParent's left child.
-            if (successor != node.right) {
-                successorParent.left = successor.right;
-                successor.right = node.right;
+            if (siguiente != nodo.derecha) {
+                successorParent.izquierda = siguiente.derecha;
+                siguiente.derecha = nodo.derecha;
             }
 
-            return successor;
+            return siguiente;
         }
 
-        // TreeNode class
-        private class TreeNode {
-            int data;
-            TreeNode left, right;
 
-            public TreeNode(int data) {
-                this.data = data;
-                left = right = null;
+        private class NodoArbol {
+            int value;
+            NodoArbol izquierda, derecha;
+
+            public NodoArbol(int value) {
+                this.value = value;
+                izquierda = derecha = null;
             }
         }
     }
