@@ -23,7 +23,7 @@ Si ya tiene python en su equipo haga lo siguiente
 - Ingrese a su navegador e ingrese a la url: 'localhost:8000' y empiece a jugar!
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Capturas del 'juego'
+Captura del 'juego'
 
-![image](https://github.com/user-attachments/assets/fbc757cb-7d4f-4574-a032-f26d796cfe35)
+![image](https://github.com/user-attachments/assets/7750df28-731c-4162-8ed8-c2f93391426f)
 
