@@ -1,4 +1,4 @@
-#Sistema Futbol
+Sistema Futbol
 
 El diagrama de clases se encuentra abajo de las capturas c:
 
