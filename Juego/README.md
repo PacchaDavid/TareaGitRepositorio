@@ -25,5 +25,6 @@ Si ya tiene python en su equipo haga lo siguiente
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Captura del 'juego'
 
-![image](https://github.com/user-attachments/assets/7750df28-731c-4162-8ed8-c2f93391426f)
+![image](https://github.com/user-attachments/assets/efef3240-1c74-4b8e-adc8-e03f00e4da07)
+
 
