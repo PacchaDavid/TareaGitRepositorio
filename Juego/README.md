@@ -10,6 +10,8 @@ Los assets los obtuve de manera gratuita en: https://pixelfrog-assets.itch.io/pi
 
 El juego fue creado utilizando el motor de juegos Phaser, https://phaser.io/ ... Este juego se ejecuta en el navegador y se renderiza en una etiqueta canvas 
 
+El código principal de javaScript está en el archivo game.js el resto de archivos sirven para mejorar la modularidad
+
 Instrucciones para la instalación:
 
 Antes de instalar el juego usted debe tener instalado python en su equipo, porque es necesario levantar un servidor http local. El servidor local es necesario porque 
