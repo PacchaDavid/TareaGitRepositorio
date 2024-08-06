@@ -12,8 +12,8 @@ El juego fue creado utilizando el motor de juegos Phaser, https://phaser.io/ ...
 
 Instrucciones para la instalación:
 
-Antes de intalar el juego usted debe tener instalado python en su equipo, porque es necesario levantar un servidor http local. El servidor local es necesario porque 
-ocurre un error al precargar los assets sin utilizar el servidor. Los navegadores no pueden realizar solicitudes a las rutas locales del sistema operativo, o eso creo...
+Antes de instalar el juego usted debe tener instalado python en su equipo, porque es necesario levantar un servidor http local. El servidor local es necesario porque 
+ocurre un error al precargar los assets sin utilizar el servidor, en la consola del navegador solo dice que es por temas de seguridad. 
 
 Si ya tiene python en su equipo haga lo siguiente
 
