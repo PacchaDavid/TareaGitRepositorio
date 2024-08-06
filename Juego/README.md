@@ -18,8 +18,8 @@ ocurre un error al precargar los assets sin utilizar el servidor, en la consola 
 Si ya tiene python en su equipo haga lo siguiente
 
 - Clone o descarge el repositorio en su equipo.
-- Abra una nueva terminal desde el directorio 'Juego/'
-- Ejecute el comando python -m http.server 8000
+- Abra una nueva terminal desde el directorio 'Juego/'.
+- Ejecute el comando: 'python -m http.server 8000'.
 - Ingrese a su navegador e ingrese a la url: 'localhost:8000' y empiece a jugar!
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
