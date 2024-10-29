@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Formulario Persona{% endblock %}
+{% block static_content %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css')}}">
+{% endblock %}
+{% block content %}
+  <form action="/persona/send" method="post" class="persona-form">
+    {# <select name="tipoIdentificacion" id="tipoIdentificacion">{% for item in list %}<option value="{{item}}">{{item}}</option>{% endfor %}</select> #}
+    <fieldset>
+      <legend>Datos Personales</legend>
+        <label>
+          Nombre:
+          <input type="text" name="nombre" id="nombre">
+        </label>
+        <label>
+          Apellido:
+          <input type="text" name="apellido" id="apellido">
+        </label>
+        <label>
+          DNI:
+          <input type="text" name="dni" id="dni">
+        </label>
+        <label>
+          Fecha de Nacimiento: 
+          <input type="text" name="fechaNacimiento" id="fechaNacimiento">
+        </label>
+        <label>
+          Direccion:
+          <input type="text" name="direccion" id="direccion">
+        </label>
+        <button type="submit">Enviar Datos</button>
+    </fieldset>
+  </form>
+  
+{% endblock %}
